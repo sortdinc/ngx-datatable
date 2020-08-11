@@ -541,6 +541,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
       // until the previous row position.
       const pos = this.rowHeightsCache.query(idx - 1);
 
+      styles.zIndex = this.rowCount - idx;
+
       translateXY(styles, 0, pos);
     }
 
