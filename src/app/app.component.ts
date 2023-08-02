@@ -1,16 +1,17 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy, Location } from '@angular/common';
-import packageInfo from 'projects/swimlane/ngx-datatable/package.json';
+import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
+import packageInfo from 'projects/ngx-datatable/package.json';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
     './app.component.scss',
-    '../../projects/swimlane/ngx-datatable/src/lib/themes/material.scss',
-    '../../projects/swimlane/ngx-datatable/src/lib/themes/dark.scss',
-    '../../projects/swimlane/ngx-datatable/src/lib/themes/bootstrap.scss'
+    '../../projects/ngx-datatable/src/lib/themes/material.scss',
+    '../../projects/ngx-datatable/src/lib/themes/dark.scss',
+    '../../projects/ngx-datatable/src/lib/themes/bootstrap.scss'
   ],
   providers: [
     Location,

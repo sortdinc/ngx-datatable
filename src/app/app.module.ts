@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NgxDatatableModule } from '../../projects/swimlane/ngx-datatable/src/public-api';
+import { NgxDatatableModule } from '../../projects/ngx-datatable/src/public-api';
 import { AppComponent } from './app.component';
 
 // -- Basic
@@ -9,7 +9,7 @@ import { BasicFixedComponent } from './basic/basic-fixed.component';
 import { BasicAutoComponent } from './basic/basic-auto.component';
 import { VirtualScrollComponent } from './basic/virtual.component';
 import { InlineEditComponent } from './basic/inline.component';
-import { HorzVertScrolling } from './basic/scrolling.component';
+import { HorzVertScrollingComponent } from './basic/scrolling.component';
 import { MultipleTablesComponent } from './basic/multiple.component';
 import { FullScreenComponent } from './basic/fullscreen.component';
 import { RowDetailsComponent } from './basic/row-detail.component';
@@ -23,6 +23,8 @@ import { RowCssComponent } from './basic/css.component';
 import { DynamicHeightComponent } from './basic/dynamic-height.component';
 import { FooterDemoComponent } from './basic/footer.component';
 import { RowGroupingComponent } from './basic/row-grouping.component';
+import { BasicEmptyComponent } from './basic/empty.component';
+import { DisabledRowsComponent } from './basic/disabled-rows.component';
 
 // -- Themes
 import { BootstrapThemeComponent } from './basic/bootstrap.component';
@@ -56,6 +58,7 @@ import { SingleSelectionComponent } from './selection/selection-single.component
 import { MultiDisableSelectionComponent } from './selection/selection-disabled.component';
 import { CheckboxSelectionComponent } from './selection/selection-chkbox.component';
 import { MultiClickSelectionComponent } from './selection/selection-multi-click.component';
+import { MultiClickCheckboxSelectionComponent } from './selection/selection-multi-click-chkbox.component';
 import { CustomCheckboxSelectionComponent } from './selection/selection-chkbox-template.component';
 
 // -- Columns
@@ -73,6 +76,7 @@ import { SummaryRowServerPagingComponent } from './summary/summary-row-server-pa
 import { SummaryRowInlineHtmlComponent } from './summary/summary-row-inline-html.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
+import { ScollingDynamicallyComponent } from './basic/scrolling-dynamically.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +87,8 @@ import { CommonModule } from '@angular/common';
     FullScreenTreeComponent,
     InlineEditComponent,
     VirtualScrollComponent,
-    HorzVertScrolling,
+    HorzVertScrollingComponent,
+    ScollingDynamicallyComponent,
     MultipleTablesComponent,
     RowDetailsComponent,
     ResponsiveComponent,
@@ -97,6 +102,7 @@ import { CommonModule } from '@angular/common';
     SortingComparatorComponent,
     CellSelectionComponent,
     MultiSelectionComponent,
+    MultiClickCheckboxSelectionComponent,
     InlineTemplatesComponent,
     TemplateRefTemplatesComponent,
     ColumnFlexComponent,
@@ -121,12 +127,14 @@ import { CommonModule } from '@angular/common';
     DynamicHeightComponent,
     FooterDemoComponent,
     RowGroupingComponent,
+    BasicEmptyComponent,
     BootstrapThemeComponent,
     ClientTreeComponent,
     SummaryRowSimpleComponent,
     SummaryRowCustomTemplateComponent,
     SummaryRowServerPagingComponent,
-    SummaryRowInlineHtmlComponent
+    SummaryRowInlineHtmlComponent,
+    DisabledRowsComponent
   ],
   imports: [
     CommonModule,

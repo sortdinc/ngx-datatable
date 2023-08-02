@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgStyle } from '@angular/common';
-import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import { ColumnMode } from 'projects/ngx-datatable/src/public-api';
 
 @Component({
   selector: 'row-grouping-demo',
@@ -10,7 +10,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
         Row Grouping
         <small>
           <a
-            href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/basic/row-grouping.component.ts"
+            href="https://github.com/siemens/ngx-datatable/blob/master/src/app/basic/row-grouping.component.ts"
             target="_blank"
           >
             Source
@@ -182,15 +182,14 @@ export class RowGroupingComponent {
 
     if (group.length === 2) {
       // There are only 2 lines in a group
-      // tslint:disable-next-line:max-line-length
       if (
         ['Calculated', 'Funder'].indexOf(group[0].source) > -1 &&
         ['Calculated', 'Funder'].indexOf(group[1].source) > -1
       ) {
         // Sources are funder and calculated
-        // tslint:disable-next-line:max-line-length
         if (group[0].startdate === group[1].startdate && group[0].enddate === group[1].enddate) {
           // Start dates and end dates match
+          // eslint-disable-next-line @typescript-eslint/prefer-for-of
           for (let index = 0; index < group.length; index++) {
             if (group[index].source !== row.source) {
               if (event.target.value === '0') {
@@ -209,6 +208,7 @@ export class RowGroupingComponent {
         }
       }
     } else {
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let index = 0; index < group.length; index++) {
         if (group[index].exppayyes === 0 && group[index].exppayno === 0 && group[index].exppaypending === 0) {
           expectedPaymentDealtWith = false;
@@ -227,13 +227,15 @@ export class RowGroupingComponent {
 
       // check if can set the group status
       const numberOfExpPayYes = group.filter(rowFilter => rowFilter.exppayyes === 1).length;
-      const numberOfSourceFunder = group.filter(rowFilter => rowFilter.exppayyes === 1 && rowFilter.source === 'Funder')
-        .length;
+      const numberOfSourceFunder = group.filter(
+        rowFilter => rowFilter.exppayyes === 1 && rowFilter.source === 'Funder'
+      ).length;
       const numberOfSourceCalculated = group.filter(
         rowFilter => rowFilter.exppayyes === 1 && rowFilter.source === 'Calculated'
       ).length;
-      const numberOfSourceManual = group.filter(rowFilter => rowFilter.exppayyes === 1 && rowFilter.source === 'Manual')
-        .length;
+      const numberOfSourceManual = group.filter(
+        rowFilter => rowFilter.exppayyes === 1 && rowFilter.source === 'Manual'
+      ).length;
 
       console.log('numberOfExpPayYes', numberOfExpPayYes);
       console.log('numberOfSourceFunder', numberOfSourceFunder);

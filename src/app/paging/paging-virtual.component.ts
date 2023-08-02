@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MockServerResultsService } from './mock-server-results-service';
 import { CorporateEmployee } from './model/corporate-employee';
 import { Page } from './model/page';
-import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import { ColumnMode } from 'projects/ngx-datatable/src/public-api';
 import { delay } from 'rxjs/operators';
 
 interface PageInfo {
@@ -21,7 +21,7 @@ interface PageInfo {
         Virtual Server-side Paging
         <small>
           <a
-            href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/paging/paging-virtual.component.ts"
+            href="https://github.com/siemens/ngx-datatable/blob/master/src/app/paging/paging-virtual.component.ts"
             target="_blank"
           >
             Source
@@ -39,6 +39,7 @@ interface PageInfo {
         [columnMode]="ColumnMode.force"
         [headerHeight]="50"
         [loadingIndicator]="isLoading > 0"
+        [ghostLoadingIndicator]="isLoading > 0"
         [scrollbarV]="true"
         [footerHeight]="50"
         [rowHeight]="50"
@@ -48,15 +49,18 @@ interface PageInfo {
         [offset]="pageNumber"
         (page)="setPage($event)"
       >
+        <div loading-indicator class="custom-loading-indicator">loading...</div>
       </ngx-datatable>
     </div>
-  `
+  `,
+  styleUrls: ['./paging-virtual.component.scss']
 })
 export class VirtualPagingComponent {
   totalElements: number;
   pageNumber: number;
   rows: CorporateEmployee[];
   cache: any = {};
+  cachePageSize = 0;
 
   ColumnMode = ColumnMode;
 
@@ -77,16 +81,17 @@ export class VirtualPagingComponent {
     // This is the scroll position in rows
     const rowOffset = pageInfo.offset * pageInfo.pageSize;
 
-    // When calling the server, we keep page size fixed
-    // This should be the max UI pagesize or larger
-    // This is not necessary but helps simplify caching since the UI page size can change
     const page = new Page();
-    page.size = 20;
+    page.size = pageInfo.pageSize;
     page.pageNumber = Math.floor(rowOffset / page.size);
 
     // We keep a index of server loaded pages so we don't load same data twice
     // This is based on the server page not the UI
-    if (this.cache[page.pageNumber]) return;
+    if (this.cachePageSize !== page.size) {
+      this.cachePageSize = page.size;
+      this.cache = {};
+    }
+    if (this.cache[page.pageNumber]) {return;}
     this.cache[page.pageNumber] = true;
 
     // Counter of pending API calls

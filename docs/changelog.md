@@ -1,8 +1,72 @@
 # Changelog
 
+## 21.4.1
+
+- Fix: emit missing `dragleave` drag-and-drop event
+
+## 21.4.0
+
+- Feature: add row drag and drop capability
+
+## 21.3.1
+
+- Fix: remove ghost placeholder cells after data load
+
+## 21.3.0
+
+- Feature: allow support to mark complete row as disable
+- Fix: increase style compilation budget
+
+## 21.2.1
+
+- Fix: correct dynamic vertical scrolling
+
+## 21.2.0
+
+- Feature: Add on-demand vertical scrolling support
+
+## 21.1.3
+
+- Fix: add missing aria-label to tree icons
+
+## 21.1.2
+
+- Fix: only show ghost loading indicator when active
+
+## 21.1.1
+
+- Fix: add ghost loading indicator support
+- Fix: scroll bar re-draw issue and enabled DOM virtualization
+- Fix: loading indicator memory leak
+- Fix: redraw issue with virtual scrolling while dragging scrollbar
+
+## 21.1.0
+
+- Feature: decouple checkboxable and headerCheckboxable from SelectionType.checkbox
+- Feature: update to Angular 13 and ivy
+- Chore: switch from TSLint/Prettier to ESLint
+
+## 21.0.0
+
+- Feature: support custom loading indicator
+- Fix: prevent internal sorting if `externalSorting` is set
+- Breaking: `emptyCustomContent` input no longer required/supported
+
+## 20.1.0
+
+- Feature: support custom content for empty table
+- Fix: tabindex on datatable body
+- Fix: orderable directive
+- Fix: column resizing cases
+- Fix: refresh virtual grid after scroll
+- Fix: clearTimeout/\_destroySubscription race
+- Fix: CSP script-src 'self'
+- Fix: emit page event on page size change for virtual paging
+
 ## 20.0.0
 
 - Breaking: Update to angular 12
+- Breaking: fork into `@siemens` scope
 
 ## 19.0.0
 

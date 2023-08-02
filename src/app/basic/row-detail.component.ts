@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ColumnMode } from 'projects/ngx-datatable/src/public-api';
 
 @Component({
   selector: 'row-details-demo',
@@ -9,7 +9,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
         Row Detail Demo
         <small>
           <a
-            href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/basic/row-detail.component.ts"
+            href="https://github.com/siemens/ngx-datatable/blob/master/src/app/basic/row-detail.component.ts"
             target="_blank"
           >
             Source
@@ -85,6 +85,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
       </ngx-datatable>
     </div>
   `,
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None
 })
 export class RowDetailsComponent {

@@ -1,5 +1,5 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ColumnMode } from 'projects/ngx-datatable/src/public-api';
 
 @Component({
   selector: 'template-ref-demo',
@@ -9,7 +9,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
         TemplateRef via Column Property
         <small>
           <a
-            href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/templates/template-obj.component.ts"
+            href="https://github.com/siemens/ngx-datatable/blob/master/src/app/templates/template-obj.component.ts"
             target="_blank"
           >
             Source
@@ -36,7 +36,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
     </div>
   `
 })
-export class TemplateRefTemplatesComponent {
+export class TemplateRefTemplatesComponent implements OnInit {
   @ViewChild('editTmpl', { static: true }) editTmpl: TemplateRef<any>;
   @ViewChild('hdrTpl', { static: true }) hdrTpl: TemplateRef<any>;
 

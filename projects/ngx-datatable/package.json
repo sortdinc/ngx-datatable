@@ -1,0 +1,32 @@
+{
+  "name": "@siemens/ngx-datatable",
+  "version": "21.4.1",
+  "description": "ngx-datatable is an Angular table grid component for presenting large and complex data.",
+  "peerDependencies": {
+    "@angular/common": ">=11.0.2",
+    "@angular/core": ">=11.0.2",
+    "@angular/platform-browser": ">=11.0.2",
+    "rxjs": "^6.6.3 || ^7.4.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siemens/ngx-datatable.git"
+  },
+  "keywords": [
+    "angularjs",
+    "angular",
+    "javascript",
+    "datatable",
+    "grid",
+    "table"
+  ],
+  "author": "Siemens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siemens/ngx-datatable/issues"
+  },
+  "homepage": "https://github.com/siemens/ngx-datatable#readme"
+}

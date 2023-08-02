@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
-import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ColumnMode } from 'projects/ngx-datatable/src/public-api';
 
 @Component({
   selector: 'responsive-demo',
@@ -29,7 +29,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
         Responsive Demo
         <small>
           <a
-            href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/basic/responsive.component.ts"
+            href="https://github.com/siemens/ngx-datatable/blob/master/src/app/basic/responsive.component.ts"
             target="_blank"
           >
             Source
@@ -111,6 +111,7 @@ import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
       appear in the row detail view.
     </div>
   `,
+  // eslint-disable-next-line @angular-eslint/use-component-view-encapsulation
   encapsulation: ViewEncapsulation.None
 })
 export class ResponsiveComponent {

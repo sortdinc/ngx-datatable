@@ -1,10 +1,10 @@
-import { Component, ElementRef, Injectable } from '@angular/core';
+import { Component, ElementRef, Injectable, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { CorporateEmployee } from './model/corporate-employee';
 
 import data from 'src/assets/data/company.json';
-import { ColumnMode } from 'projects/swimlane/ngx-datatable/src/public-api';
+import { ColumnMode } from 'projects/ngx-datatable/src/public-api';
 const companyData = data as any[];
 
 class PagedData<T> {
@@ -33,7 +33,7 @@ export class MockServerResultsService {
         Server-side Scrolling
         <small>
           <a
-            href="https://github.com/swimlane/ngx-datatable/blob/master/src/app/paging/scrolling-server.component.ts"
+            href="https://github.com/siemens/ngx-datatable/blob/master/src/app/paging/scrolling-server.component.ts"
             target="_blank"
           >
             Source
@@ -48,6 +48,7 @@ export class MockServerResultsService {
         [headerHeight]="headerHeight"
         [rowHeight]="rowHeight"
         [loadingIndicator]="isLoading"
+        [ghostLoadingIndicator]="isLoading"
         [scrollbarV]="true"
         (scroll)="onScroll($event.offsetY)"
       ></ngx-datatable>
@@ -55,7 +56,7 @@ export class MockServerResultsService {
   `,
   styleUrls: ['./scrolling-server.component.css']
 })
-export class ServerScrollingComponent {
+export class ServerScrollingComponent implements OnInit {
   readonly headerHeight = 50;
   readonly rowHeight = 50;
   readonly pageLimit = 10;
