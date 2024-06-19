@@ -10,7 +10,7 @@ MIT
 @angular/router
 MIT
 
-@sortdinc/ngx-datatable
+@siemens/ngx-datatable
 MIT
 
 rxjs
